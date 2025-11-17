@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yoursite.com/sitemap.xml
+Sitemap: https://gxu0904.github.io/sitemap.xml

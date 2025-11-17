@@ -1,0 +1,41 @@
+---
+// AboutBlueprint section placeholder with enhanced animations
+---
+
+<section id="about" class="py-24 relative overflow-hidden" data-animate>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl md:text-6xl font-display font-bold text-center mb-16" data-text-reveal>
+      About
+    </h2>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div data-animate>
+        <p class="text-xl text-[var(--muted)] leading-relaxed">
+          Building systems that solve real problems, from atomic-scale material science to large-scale social impact initiatives.
+        </p>
+      </div>
+      <div class="aspect-square bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] rounded-2xl" data-animate data-magnetic>
+        <!-- Blueprint visualization placeholder -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Section-specific animations
+  gsap.fromTo("#about [data-animate]",
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top center+=100"
+      }
+    }
+  );
+</script>

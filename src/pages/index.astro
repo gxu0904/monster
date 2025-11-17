@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LandingReactor from '../sections/LandingReactor.astro';
+import AboutBlueprint from '../sections/AboutBlueprint.astro';
+import ProjectsGallery from '../sections/ProjectsGallery.astro';
+import ImpactRipples from '../sections/ImpactRipples.astro';
+import ContactSignal from '../sections/ContactSignal.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Grace Xu — Designing logic, systems, and stories">
+  <Header />
+  <LandingReactor />
+  <AboutBlueprint />
+  <ProjectsGallery />
+  <ImpactRipples />
+  <ContactSignal />
+  <Footer />
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Page-specific entrance animations
+  gsap.timeline({ delay: 0.5 })
+    .from("header", {
+      y: -100,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out"
+    })
+    .from("main > *", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out"
+    }, "-=0.5");
+</script>

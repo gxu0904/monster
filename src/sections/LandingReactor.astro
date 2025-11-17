@@ -1,0 +1,425 @@
+---
+// Enhanced Landing section with reactor-inspired animations
+---
+
+<section
+  id="landing"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[var(--bg)] to-[#0A0F1C]"
+  data-parallax
+  data-speed="0.5"
+>
+  <!-- Animated background elements -->
+  <div class="absolute inset-0 overflow-hidden">
+    <!-- Reactor core glow -->
+    <div
+      id="reactor-core"
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-gradient-radial from-[var(--primary)]/20 to-transparent blur-3xl"
+    ></div>
+
+    <!-- Orbiting particles -->
+    <div id="particles-container" class="absolute inset-0">
+      <!-- Particles will be generated via JavaScript -->
+    </div>
+
+    <!-- Energy rings -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div class="energy-ring w-[400px] h-[400px] rounded-full border border-[var(--primary)]/30"></div>
+      <div class="energy-ring w-[600px] h-[600px] rounded-full border border-[var(--accent)]/20"></div>
+      <div class="energy-ring w-[800px] h-[800px] rounded-full border border-[var(--primary)]/10"></div>
+    </div>
+
+    <!-- Grid pattern with pulse effect -->
+    <div class="absolute inset-0 opacity-30">
+      <div class="grid-pattern w-full h-full"></div>
+    </div>
+  </div>
+
+  <!-- Main content with enhanced typography animations -->
+  <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+    <!-- Glitch title effect -->
+    <h1 class="mb-8">
+      <span
+        class="block font-display text-6xl md:text-8xl lg:text-9xl font-bold text-[var(--fg)] leading-none"
+        data-text-reveal
+        data-glitch="Grace"
+      >
+        Grace
+      </span>
+      <span
+        class="block font-display text-6xl md:text-8xl lg:text-9xl font-bold text-[var(--primary)] leading-none"
+        data-text-reveal
+        data-glitch="Xu"
+      >
+        Xu
+      </span>
+    </h1>
+
+    <!-- Animated subtitle with typewriter effect -->
+    <div class="mb-12 h-16">
+      <p
+        id="typewriter"
+        class="text-xl md:text-2xl text-[var(--muted)] font-light"
+      >
+        <span class="typed-cursor">|</span>
+      </p>
+    </div>
+
+    <!-- Interactive CTA buttons with particle trails -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+      <button
+        id="primary-cta"
+        class="group relative px-8 py-4 bg-[var(--primary)] text-[var(--bg)] font-medium rounded-xl overflow-hidden transition-all duration-300 hover:scale-105"
+        data-magnetic
+        data-particle-trail
+      >
+        <span class="relative z-10 flex items-center gap-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 7h10v10"/>
+            <path d="M7 17 17 7"/>
+          </svg>
+          Explore My Work
+        </span>
+        <div class="absolute inset-0 bg-gradient-to-r from-[var(--accent)] to-[var(--primary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </button>
+
+      <button
+        id="secondary-cta"
+        class="group px-8 py-4 border border-[var(--primary)] text-[var(--primary)] font-medium rounded-xl hover:bg-[var(--primary)] hover:text-[var(--bg)] transition-all duration-300"
+        data-magnetic
+      >
+        <span class="flex items-center gap-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          Get In Touch
+        </span>
+      </button>
+    </div>
+
+    <!-- Scroll indicator with animated arrow -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+      <div
+        id="scroll-indicator"
+        class="flex flex-col items-center gap-2 text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300 cursor-pointer"
+        data-magnetic
+      >
+        <span class="text-sm font-mono">Scroll</span>
+        <div class="w-6 h-10 border border-current rounded-full flex justify-center">
+          <div class="w-1 h-3 bg-current rounded-full mt-2 animate-bounce"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating action button for quick access -->
+  <div class="fixed bottom-8 right-8 z-50">
+    <button
+      id="fab"
+      class="w-14 h-14 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] rounded-full flex items-center justify-center text-[var(--bg)] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+      data-magnetic
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  // Enhanced landing animations
+  const tl = gsap.timeline({ delay: 1 });
+
+  // Reactor core pulsing animation
+  const reactorCore = document.getElementById('reactor-core');
+  gsap.to(reactorCore, {
+    scale: 1.2,
+    opacity: 0.8,
+    duration: 3,
+    yoyo: true,
+    repeat: -1,
+    ease: "power2.inOut"
+  });
+
+  // Energy rings rotation
+  document.querySelectorAll('.energy-ring').forEach((ring, index) => {
+    gsap.to(ring, {
+      rotation: 360,
+      duration: 20 + (index * 10),
+      repeat: -1,
+      ease: "none"
+    });
+
+    // Pulse effect on rings
+    gsap.to(ring, {
+      borderColor: index % 2 === 0 ? 'rgba(0, 168, 232, 0.6)' : 'rgba(107, 230, 255, 0.4)',
+      duration: 2 + (index * 0.5),
+      yoyo: true,
+      repeat: -1,
+      ease: "power2.inOut"
+    });
+  });
+
+  // Generate and animate particles
+  function createParticles() {
+    const container = document.getElementById('particles-container');
+    const particleCount = 50;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle absolute w-1 h-1 bg-[var(--primary)] rounded-full opacity-70';
+
+      // Random position
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+
+      gsap.set(particle, { x, y });
+      container.appendChild(particle);
+
+      // Orbital animation
+      gsap.to(particle, {
+        x: `+=${Math.random() * 400 - 200}`,
+        y: `+=${Math.random() * 400 - 200}`,
+        opacity: Math.random() * 0.8 + 0.2,
+        duration: Math.random() * 10 + 5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      // Scale pulsing
+      gsap.to(particle, {
+        scale: Math.random() * 2 + 0.5,
+        duration: Math.random() * 3 + 1,
+        repeat: -1,
+        yoyo: true,
+        ease: "power2.inOut"
+      });
+    }
+  }
+
+  createParticles();
+
+  // Enhanced typewriter effect
+  const typewriterElement = document.getElementById('typewriter');
+  const phrases = [
+    "Engineer. Researcher. Builder.",
+    "Creating systems that solve real problems.",
+    "From atomic-scale to global impact.",
+    "Designing logic, systems, and stories."
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeWriter() {
+    const currentPhrase = phrases[phraseIndex];
+    const cursor = typewriterElement.querySelector('.typed-cursor');
+
+    if (isDeleting) {
+      typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    // Re-add cursor
+    typewriterElement.appendChild(cursor);
+
+    let speed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      speed = 2000; // Pause at end
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      speed = 500; // Pause before next phrase
+    }
+
+    setTimeout(typeWriter, speed);
+  }
+
+  // Start typewriter effect
+  setTimeout(typeWriter, 2000);
+
+  // Glitch effect for title
+  document.querySelectorAll('[data-glitch]').forEach(element => {
+    const originalText = element.dataset.glitch;
+
+    function glitch() {
+      const glitchChars = '!<>-_\\/[]{}—=+*^?#________';
+      let glitchedText = '';
+
+      for (let i = 0; i < originalText.length; i++) {
+        if (Math.random() < 0.1) {
+          glitchedText += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+        } else {
+          glitchedText += originalText[i];
+        }
+      }
+
+      element.textContent = glitchedText;
+
+      setTimeout(() => {
+        element.textContent = originalText;
+      }, 50);
+    }
+
+    // Random glitch effect
+    setInterval(() => {
+      if (Math.random() < 0.02) { // 2% chance every interval
+        glitch();
+      }
+    }, 100);
+  });
+
+  // Particle trail effect for buttons
+  document.querySelectorAll('[data-particle-trail]').forEach(button => {
+    button.addEventListener('mousemove', (e) => {
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Create particle trail
+      for (let i = 0; i < 3; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'absolute w-2 h-2 bg-[var(--accent)] rounded-full pointer-events-none';
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        button.appendChild(particle);
+
+        gsap.fromTo(particle,
+          { scale: 0, opacity: 1 },
+          {
+            scale: 1,
+            opacity: 0,
+            x: (Math.random() - 0.5) * 20,
+            y: (Math.random() - 0.5) * 20,
+            duration: 0.8,
+            ease: "power2.out",
+            onComplete: () => particle.remove()
+          }
+        );
+      }
+    });
+  });
+
+  // Enhanced scroll interactions
+  ScrollTrigger.create({
+    trigger: "#landing",
+    start: "top top",
+    end: "bottom center",
+    onUpdate: (self) => {
+      const progress = self.progress;
+
+      // Parallax effect on reactor core
+      gsap.to(reactorCore, {
+        scale: 1 + (progress * 0.5),
+        opacity: 1 - (progress * 0.3),
+        duration: 0.1
+      });
+
+      // Fade out landing content
+      gsap.to("#landing .relative.z-10", {
+        opacity: 1 - (progress * 0.8),
+        y: -progress * 100,
+        duration: 0.1
+      });
+    }
+  });
+
+  // Scroll indicator interaction
+  document.getElementById('scroll-indicator')?.addEventListener('click', () => {
+    gsap.to(window, {
+      duration: 2,
+      scrollTo: window.innerHeight,
+      ease: "power3.inOut"
+    });
+  });
+
+  // FAB interactions
+  const fab = document.getElementById('fab');
+  let fabVisible = false;
+
+  ScrollTrigger.create({
+    start: "100px",
+    onToggle: (self) => {
+      if (self.isActive && !fabVisible) {
+        fabVisible = true;
+        gsap.fromTo(fab,
+          { scale: 0, rotation: -180 },
+          { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.7)" }
+        );
+      } else if (!self.isActive && fabVisible) {
+        fabVisible = false;
+        gsap.to(fab, {
+          scale: 0,
+          rotation: 180,
+          duration: 0.3,
+          ease: "power2.in"
+        });
+      }
+    }
+  });
+
+  fab?.addEventListener('click', () => {
+    // Toggle command palette or quick actions
+    gsap.fromTo(fab,
+      { scale: 1 },
+      { scale: 1.2, duration: 0.1, yoyo: true, repeat: 1 }
+    );
+  });
+
+  // Grid pattern animation
+  const gridStyle = document.createElement('style');
+  gridStyle.textContent = `
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(0, 168, 232, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 168, 232, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+  `;
+  document.head.appendChild(gridStyle);
+</script>
+
+<style>
+  .energy-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-style: dashed;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+  }
+
+  .typed-cursor {
+    animation: blink 1.5s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Enhanced gradient backgrounds */
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+</style>

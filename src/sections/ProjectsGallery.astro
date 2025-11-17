@@ -1,0 +1,41 @@
+---
+// ProjectsGallery section placeholder
+---
+
+<section id="projects" class="py-24 bg-gradient-to-b from-transparent to-[#0A0F1C]/50" data-animate>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-4xl md:text-6xl font-display font-bold text-center mb-16" data-text-reveal>
+      Projects
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {[1, 2, 3].map((i) => (
+        <div
+          class="aspect-square bg-[var(--graphite)] rounded-2xl hover-lift"
+          data-animate
+          data-magnetic
+        >
+          <!-- Project card placeholder -->
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  gsap.fromTo("#projects [data-animate]",
+    { opacity: 0, scale: 0.9 },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: "back.out(1.7)",
+      scrollTrigger: {
+        trigger: "#projects",
+        start: "top center+=100"
+      }
+    }
+  );
+</script>

@@ -1,0 +1,285 @@
+---
+// Header component with enhanced animations
+---
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4 backdrop-blur-xl bg-[var(--bg)]/80 border-b border-[var(--graphite)]/30"
+  data-animate
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo with magnetic effect -->
+    <a
+      href="/"
+      class="font-display text-xl font-bold text-[var(--fg)] hover:text-[var(--primary)] transition-colors duration-300"
+      data-magnetic
+    >
+      <span data-text-reveal>Grace Xu</span>
+    </a>
+
+    <!-- Navigation with staggered entrance -->
+    <nav class="hidden md:block">
+      <ul class="flex items-center gap-8">
+        <li data-animate style="animation-delay: 0.1s">
+          <a
+            href="#about"
+            class="text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 hover:scale-105"
+            data-magnetic
+          >
+            About
+          </a>
+        </li>
+        <li data-animate style="animation-delay: 0.2s">
+          <a
+            href="#projects"
+            class="text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 hover:scale-105"
+            data-magnetic
+          >
+            Projects
+          </a>
+        </li>
+        <li data-animate style="animation-delay: 0.3s">
+          <a
+            href="#impact"
+            class="text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 hover:scale-105"
+            data-magnetic
+          >
+            Impact
+          </a>
+        </li>
+        <li data-animate style="animation-delay: 0.4s">
+          <a
+            href="#contact"
+            class="text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 hover:scale-105"
+            data-magnetic
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Enhanced command palette trigger -->
+    <button
+      id="command-trigger"
+      class="flex items-center gap-2 px-4 py-2 text-sm text-[var(--muted)] bg-[var(--graphite)]/50 backdrop-blur-sm rounded-lg border border-[var(--graphite)] hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all duration-300 group"
+      data-magnetic
+      data-animate
+    >
+      <kbd class="px-2 py-1 text-xs bg-[var(--graphite)] rounded font-mono group-hover:bg-[var(--primary)] group-hover:text-[var(--bg)] transition-all duration-300">⌘</kbd>
+      <kbd class="px-2 py-1 text-xs bg-[var(--graphite)] rounded font-mono group-hover:bg-[var(--primary)] group-hover:text-[var(--bg)] transition-all duration-300">K</kbd>
+    </button>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-toggle"
+      class="md:hidden p-2 rounded-lg hover:bg-[var(--graphite)]/50 transition-colors duration-200"
+      data-magnetic
+      aria-label="Toggle menu"
+    >
+      <div class="hamburger-lines">
+        <span class="line line-1 block w-6 h-0.5 bg-[var(--fg)] mb-1 transition-all duration-300"></span>
+        <span class="line line-2 block w-6 h-0.5 bg-[var(--fg)] mb-1 transition-all duration-300"></span>
+        <span class="line line-3 block w-6 h-0.5 bg-[var(--fg)] transition-all duration-300"></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Mobile menu with slide-in animation -->
+  <div
+    id="mobile-menu"
+    class="md:hidden absolute top-full left-0 right-0 bg-[var(--bg)]/95 backdrop-blur-xl border-b border-[var(--graphite)]/30 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-500 ease-out"
+  >
+    <nav class="px-4 py-6">
+      <ul class="space-y-4">
+        <li class="transform translate-x-8 opacity-0" style="transition-delay: 0.1s">
+          <a href="#about" class="block text-lg text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300">About</a>
+        </li>
+        <li class="transform translate-x-8 opacity-0" style="transition-delay: 0.2s">
+          <a href="#projects" class="block text-lg text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300">Projects</a>
+        </li>
+        <li class="transform translate-x-8 opacity-0" style="transition-delay: 0.3s">
+          <a href="#impact" class="block text-lg text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300">Impact</a>
+        </li>
+        <li class="transform translate-x-8 opacity-0" style="transition-delay: 0.4s">
+          <a href="#contact" class="block text-lg text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Enhanced header animations
+  const header = document.querySelector('header');
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const commandTrigger = document.getElementById('command-trigger');
+
+  // Header scroll behavior with advanced animation
+  let lastScrollY = 0;
+  let ticking = false;
+
+  function updateHeaderOnScroll() {
+    const scrollY = window.scrollY;
+
+    if (scrollY > 100) {
+      gsap.to(header, {
+        backdropFilter: 'blur(20px)',
+        background: 'rgba(11, 19, 43, 0.9)',
+        borderBottomColor: 'rgba(0, 168, 232, 0.3)',
+        duration: 0.3
+      });
+    } else {
+      gsap.to(header, {
+        backdropFilter: 'blur(12px)',
+        background: 'rgba(11, 19, 43, 0.8)',
+        borderBottomColor: 'rgba(28, 28, 28, 0.3)',
+        duration: 0.3
+      });
+    }
+
+    if (scrollY > lastScrollY && scrollY > 200) {
+      // Hide header when scrolling down
+      gsap.to(header, {
+        y: -100,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    } else {
+      // Show header when scrolling up
+      gsap.to(header, {
+        y: 0,
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    }
+
+    lastScrollY = scrollY;
+    ticking = false;
+  }
+
+  function requestScrollUpdate() {
+    if (!ticking) {
+      requestAnimationFrame(updateHeaderOnScroll);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+
+  // Enhanced mobile menu toggle
+  let isMenuOpen = false;
+
+  function toggleMobileMenu() {
+    isMenuOpen = !isMenuOpen;
+
+    if (isMenuOpen) {
+      // Open menu animation
+      gsap.set(mobileMenu, { pointerEvents: 'auto' });
+      gsap.to(mobileMenu, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power3.out"
+      });
+
+      gsap.to(mobileMenu.querySelectorAll('li'), {
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "back.out(1.7)",
+        delay: 0.2
+      });
+
+      // Animate hamburger to X
+      gsap.to('.line-1', { rotation: 45, y: 6, duration: 0.3 });
+      gsap.to('.line-2', { opacity: 0, duration: 0.2 });
+      gsap.to('.line-3', { rotation: -45, y: -6, duration: 0.3 });
+
+    } else {
+      // Close menu animation
+      gsap.to(mobileMenu, {
+        y: -20,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => {
+          gsap.set(mobileMenu, { pointerEvents: 'none' });
+        }
+      });
+
+      gsap.to(mobileMenu.querySelectorAll('li'), {
+        x: 32,
+        opacity: 0,
+        duration: 0.3,
+        stagger: 0.05
+      });
+
+      // Animate X back to hamburger
+      gsap.to('.line-1', { rotation: 0, y: 0, duration: 0.3 });
+      gsap.to('.line-2', { opacity: 1, duration: 0.3, delay: 0.1 });
+      gsap.to('.line-3', { rotation: 0, y: 0, duration: 0.3 });
+    }
+  }
+
+  mobileMenuToggle?.addEventListener('click', toggleMobileMenu);
+
+  // Command palette trigger with enhanced feedback
+  function triggerCommandPalette() {
+    gsap.fromTo(commandTrigger,
+      { scale: 1 },
+      {
+        scale: 1.05,
+        duration: 0.1,
+        yoyo: true,
+        repeat: 1,
+        ease: "power2.inOut"
+      }
+    );
+
+    // Add visual feedback
+    gsap.fromTo(commandTrigger,
+      { boxShadow: '0 0 0 rgba(0, 168, 232, 0)' },
+      {
+        boxShadow: '0 0 20px rgba(0, 168, 232, 0.4)',
+        duration: 0.3,
+        yoyo: true,
+        repeat: 1
+      }
+    );
+  }
+
+  commandTrigger?.addEventListener('click', triggerCommandPalette);
+
+  // Keyboard shortcut for command palette
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      triggerCommandPalette();
+    }
+  });
+
+  // Enhanced hover effects for navigation items
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      gsap.to(link, {
+        scale: 1.05,
+        color: 'var(--primary)',
+        duration: 0.2,
+        ease: "power2.out"
+      });
+    });
+
+    link.addEventListener('mouseleave', () => {
+      gsap.to(link, {
+        scale: 1,
+        color: 'var(--muted)',
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    });
+  });
+</script>

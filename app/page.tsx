@@ -1,25 +1,20 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import BootScreen from '@/components/BootScreen';
-import Desktop from '@/components/Desktop';
+import LandingReactor from "./sections/LandingReactor";
+import AboutBlueprint from "./sections/AboutBlueprint";
+import ProjectsGallery from "./sections/ProjectsGallery";
+import ImpactRipples from "./sections/ImpactRipples";
+import ContactSignal from "./sections/ContactSignal";
 
-export default function Home() {
-  const [booted, setBooted] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
+export default function Page() {
   return (
-    <main className="h-screen w-screen overflow-hidden">
-      {!booted && <BootScreen onBootComplete={() => setBooted(true)} />}
-      {booted && <Desktop />}
-    </main>
+    <>
+      <LandingReactor />
+      <AboutBlueprint />
+      <ProjectsGallery />
+      <ImpactRipples />
+      <ContactSignal />
+    </>
   );
 }
+

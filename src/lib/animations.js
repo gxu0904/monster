@@ -710,6 +710,7 @@ export class EnhancedCursor {
     this.trail = [];
     this.trailLength = 8;
 
+    // Only initialize if cursor element exists
     if (this.cursor) {
       this.init();
     }

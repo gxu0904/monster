@@ -3,9 +3,7 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
   ],
   theme: {
     extend: {
@@ -26,7 +24,7 @@ const config: Config = {
           foreground: "hsl(var(--popover-foreground))",
         },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "hsl(var(--primary-shadcn))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -34,11 +32,11 @@ const config: Config = {
           foreground: "hsl(var(--secondary-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
+          DEFAULT: "hsl(var(--muted-shadcn))",
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
+          DEFAULT: "hsl(var(--accent-shadcn))",
           foreground: "hsl(var(--accent-foreground))",
         },
         destructive: {
@@ -50,8 +48,8 @@ const config: Config = {
         ring: "hsl(var(--ring))",
       },
       boxShadow: {
-        glow: "0 0 24px rgba(0, 168, 232, 0.45)",
-        "glow-lg": "0 0 40px rgba(0, 168, 232, 0.6)",
+        glow: "0 0 24px rgba(30, 58, 95, 0.25)",
+        "glow-lg": "0 0 40px rgba(30, 58, 95, 0.35)",
       },
       container: {
         center: true,

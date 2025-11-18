@@ -126,7 +126,9 @@
 
   // Enhanced scroll effect with blur
   let lastScroll = 0;
-  window.addEventListener('scroll', () => {
+  let ticking = false;
+
+  function updateHeader() {
     const currentScroll = window.pageYOffset;
 
     if (currentScroll > 50) {
@@ -149,6 +151,14 @@
     }
 
     lastScroll = currentScroll;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
   }, { passive: true });
 
   // Mobile menu toggle with animations
@@ -192,6 +202,27 @@
         menu.classList.add('hidden');
         menuIcon!.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>';
       }, 300);
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href && href !== '#' && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const headerOffset = 100;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
     });
   });
 </script>

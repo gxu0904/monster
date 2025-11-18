@@ -59,14 +59,11 @@ const { title, description = "Engineer. Researcher. Builder. Creating systems th
       document.documentElement.style.setProperty('--font-mono', '"IBM Plex Mono", monospace');
     </script>
   </head>
-  <body class="bg-[var(--bg)] text-[var(--fg)] antialiased overflow-x-hidden">
+  <body class="bg-[var(--bg)] text-[var(--fg)] antialiased">
     <!-- Skip to content link for accessibility -->
     <a href="#content" class="skip-link">
       Skip to content
     </a>
-
-    <!-- Animated cursor aura -->
-    <div id="cursor-aura" class="fixed pointer-events-none z-50 w-8 h-8 rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] opacity-30 blur-lg transition-all duration-300 ease-out"></div>
 
     <!-- Main content -->
     <main id="content" class="relative">
@@ -79,10 +76,3 @@ const { title, description = "Engineer. Researcher. Builder. Creating systems th
     </script>
   </body>
 </html>
-
-<style>
-  .skip-link {
-    @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50;
-    @apply px-4 py-2 bg-[var(--primary)] text-[var(--bg)] rounded;
-  }
-</style>

@@ -4,35 +4,35 @@
 
 @layer base {
   :root {
-    /* Systems in Motion Design System */
-    --bg: #0B132B;
-    --fg: #F8F9FA;
-    --muted: #AAB2C8;
-    --primary: #00A8E8;
-    --accent: #6BE6FF;
-    --graphite: #1C1C1C;
-    --glow-blue: 0 0 24px rgba(0, 168, 232, 0.45);
-    
+    /* White and Navy Design System */
+    --bg: #FFFFFF;
+    --fg: #1A2332;
+    --muted: #5B6B7F;
+    --primary: #1E3A5F;
+    --accent: #2A4D7C;
+    --graphite: #E5E7EB;
+    --glow-blue: 0 0 24px rgba(30, 58, 95, 0.15);
+
     /* shadcn/ui variables */
-    --background: 11 20 43;
-    --foreground: 248 249 250;
-    --card: 11 20 43;
-    --card-foreground: 248 249 250;
-    --popover: 11 20 43;
-    --popover-foreground: 248 249 250;
-    --primary-shadcn: 0 168 232;
-    --primary-foreground: 11 20 43;
-    --secondary: 28 28 28;
-    --secondary-foreground: 248 249 250;
-    --muted-shadcn: 170 178 200;
-    --muted-foreground: 170 178 200;
-    --accent-shadcn: 107 230 255;
-    --accent-foreground: 11 20 43;
+    --background: 255 255 255;
+    --foreground: 26 35 50;
+    --card: 255 255 255;
+    --card-foreground: 26 35 50;
+    --popover: 255 255 255;
+    --popover-foreground: 26 35 50;
+    --primary-shadcn: 30 58 95;
+    --primary-foreground: 255 255 255;
+    --secondary: 229 231 235;
+    --secondary-foreground: 26 35 50;
+    --muted-shadcn: 91 107 127;
+    --muted-foreground: 91 107 127;
+    --accent-shadcn: 42 77 124;
+    --accent-foreground: 255 255 255;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 28 28 28;
-    --input: 28 28 28;
-    --ring: 0 168 232;
+    --border: 229 231 235;
+    --input: 229 231 235;
+    --ring: 30 58 95;
     --radius: 0.5rem;
   }
   
@@ -42,31 +42,32 @@
   
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 100px;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
   
   html,
   body {
     height: 100%;
-    overflow-x: hidden;
   }
   
   body {
     @apply bg-[var(--bg)] text-[var(--fg)] antialiased;
-    font-family: var(--font-sans), sans-serif;
-    background-image: 
-      radial-gradient(circle at 20% 50%, rgba(0, 168, 232, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(107, 230, 255, 0.05) 0%, transparent 50%);
-    background-attachment: fixed;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
   
   /* Typography */
   .font-display {
-    font-family: var(--font-serif), serif;
+    font-family: 'Playfair Display', var(--font-display, serif);
   }
-  
+
   .font-mono {
-    font-family: var(--font-mono), monospace;
+    font-family: 'IBM Plex Mono', var(--font-mono, monospace);
   }
   
   /* Glass panels - Browser Company inspired */
@@ -99,6 +100,14 @@
   ::selection {
     background: var(--primary);
     color: var(--bg);
+  }
+  
+  /* Line clamp utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   
   /* Focus styles - refined */
@@ -137,13 +146,13 @@
     *,
     *::before,
     *::after {
-      animation-duration: 0.001ms !important;
+      animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
-      transition-duration: 0.001ms !important;
+      transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
   }
-  
+
   /* Hide scrollbar but keep functionality */
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
@@ -152,5 +161,213 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* Screen reader only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Custom cursor styles */
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    border: 1px solid rgba(30, 58, 95, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .cursor-dot {
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 58, 95, 0.1);
+    border-radius: 50%;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (pointer: coarse) {
+    .custom-cursor {
+      display: none;
+    }
+  }
+
+  /* Advanced animation utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  /* Gradient text animation */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--primary), var(--accent), var(--primary));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Shimmer effect for loading states */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Pulse glow effect */
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(30, 58, 95, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(30, 58, 95, 0.3);
+    }
+  }
+
+  /* Rotate animation */
+  .rotate-slow {
+    animation: rotateSlow 20s linear infinite;
+  }
+
+  @keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Scale on hover with smooth transition */
+  .hover-scale {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Blur to focus effect */
+  .blur-to-focus {
+    animation: blurToFocus 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes blurToFocus {
+    from {
+      filter: blur(15px);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      filter: blur(0px);
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  /* Stagger delay utilities */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+
+  /* Smooth reveal from bottom */
+  .reveal-from-bottom {
+    animation: revealBottom 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes revealBottom {
+    from {
+      opacity: 0;
+      transform: translateY(60px) scale(0.95);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0px);
+    }
+  }
+
+  /* Glass morphism with enhanced blur */
+  .glass-morphism {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Gradient border animation */
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    border-radius: inherit;
+    animation: gradientRotate 4s linear infinite;
+  }
+
+  @keyframes gradientRotate {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
 }
+
 

@@ -1,107 +1,117 @@
 ---
-// Header component with enhanced animations
+// Animation-heavy Header with magnetic effects and scroll blur
 ---
 
 <header
-  class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4 backdrop-blur-xl bg-[var(--bg)]/80 border-b border-[var(--graphite)]/30"
+  id="main-header"
+  class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-6 transition-all duration-500"
   data-animate
+  style="will-change: transform, backdrop-filter; backdrop-filter: blur(0px); background: transparent;"
 >
   <div class="max-w-7xl mx-auto flex items-center justify-between">
-    <!-- Logo with magnetic effect -->
+    <!-- Logo with magnetic effect and gradient animation -->
     <a
       href="/"
-      class="font-display text-xl font-bold text-[var(--fg)] hover:text-[var(--primary)] transition-colors duration-300"
+      class="font-display text-2xl font-bold text-[var(--fg)] hover:text-[var(--primary)] transition-all duration-300 relative"
       data-magnetic
+      data-magnetic-strength="0.4"
+      style="will-change: transform;"
     >
-      <span data-text-reveal>Grace Xu</span>
+      <span class="relative z-10">Grace Xu</span>
+      <span class="absolute inset-0 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] opacity-0 hover:opacity-10 blur-xl transition-opacity duration-300"></span>
     </a>
 
-    <!-- Navigation with staggered entrance -->
+    <!-- Desktop Navigation with enhanced animations -->
     <nav class="hidden md:block">
-      <ul class="flex items-center gap-8">
-        <li data-animate style="animation-delay: 0.1s">
+      <ul class="flex items-center gap-10">
+        <li class="stagger-1">
           <a
             href="#about"
-            class="text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 hover:scale-105"
+            class="group relative text-base font-medium text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300"
             data-magnetic
+            data-magnetic-strength="0.25"
+            style="will-change: transform;"
           >
-            About
+            <span class="relative z-10">About</span>
+            <span class="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left rounded-full"></span>
+            <span class="absolute inset-0 bg-[var(--primary)]/5 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
           </a>
         </li>
-        <li data-animate style="animation-delay: 0.2s">
+        <li class="stagger-2">
           <a
             href="#projects"
-            class="text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 hover:scale-105"
+            class="group relative text-base font-medium text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300"
             data-magnetic
+            data-magnetic-strength="0.25"
+            style="will-change: transform;"
           >
-            Projects
+            <span class="relative z-10">Projects</span>
+            <span class="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left rounded-full"></span>
+            <span class="absolute inset-0 bg-[var(--primary)]/5 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-lg -z-10"></span>
           </a>
         </li>
-        <li data-animate style="animation-delay: 0.3s">
-          <a
-            href="#impact"
-            class="text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 hover:scale-105"
-            data-magnetic
-          >
-            Impact
-          </a>
-        </li>
-        <li data-animate style="animation-delay: 0.4s">
+        <li class="stagger-3">
           <a
             href="#contact"
-            class="text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 hover:scale-105"
+            class="group relative px-6 py-2.5 bg-[var(--primary)] text-white font-semibold rounded-lg overflow-hidden hover-scale"
             data-magnetic
+            data-magnetic-strength="0.3"
+            style="will-change: transform; transform-style: preserve-3d;"
           >
-            Contact
+            <span class="relative z-10">Contact</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-[var(--accent)] to-[var(--primary)] opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+            <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100"></div>
           </a>
         </li>
       </ul>
     </nav>
 
-    <!-- Enhanced command palette trigger -->
-    <button
-      id="command-trigger"
-      class="flex items-center gap-2 px-4 py-2 text-sm text-[var(--muted)] bg-[var(--graphite)]/50 backdrop-blur-sm rounded-lg border border-[var(--graphite)] hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all duration-300 group"
-      data-magnetic
-      data-animate
-    >
-      <kbd class="px-2 py-1 text-xs bg-[var(--graphite)] rounded font-mono group-hover:bg-[var(--primary)] group-hover:text-[var(--bg)] transition-all duration-300">⌘</kbd>
-      <kbd class="px-2 py-1 text-xs bg-[var(--graphite)] rounded font-mono group-hover:bg-[var(--primary)] group-hover:text-[var(--bg)] transition-all duration-300">K</kbd>
-    </button>
-
-    <!-- Mobile menu button -->
+    <!-- Mobile menu button with enhanced animation -->
     <button
       id="mobile-menu-toggle"
-      class="md:hidden p-2 rounded-lg hover:bg-[var(--graphite)]/50 transition-colors duration-200"
-      data-magnetic
+      class="md:hidden relative p-2.5 rounded-lg text-[var(--muted)] hover:text-[var(--primary)] hover:bg-[var(--primary)]/10 transition-all duration-300 hover-scale"
       aria-label="Toggle menu"
+      data-magnetic
+      data-magnetic-strength="0.4"
+      style="will-change: transform;"
     >
-      <div class="hamburger-lines">
-        <span class="line line-1 block w-6 h-0.5 bg-[var(--fg)] mb-1 transition-all duration-300"></span>
-        <span class="line line-2 block w-6 h-0.5 bg-[var(--fg)] mb-1 transition-all duration-300"></span>
-        <span class="line line-3 block w-6 h-0.5 bg-[var(--fg)] transition-all duration-300"></span>
-      </div>
+      <svg class="w-6 h-6 transition-transform duration-300" id="menu-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
     </button>
   </div>
 
-  <!-- Mobile menu with slide-in animation -->
+  <!-- Mobile menu with slide and fade animation -->
   <div
     id="mobile-menu"
-    class="md:hidden absolute top-full left-0 right-0 bg-[var(--bg)]/95 backdrop-blur-xl border-b border-[var(--graphite)]/30 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-500 ease-out"
+    class="md:hidden hidden mt-6 pt-6 border-t border-[var(--graphite)]/20"
+    style="will-change: opacity, transform;"
   >
-    <nav class="px-4 py-6">
-      <ul class="space-y-4">
-        <li class="transform translate-x-8 opacity-0" style="transition-delay: 0.1s">
-          <a href="#about" class="block text-lg text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300">About</a>
+    <nav>
+      <ul class="space-y-5">
+        <li class="reveal-from-bottom stagger-1" style="opacity: 0;">
+          <a
+            href="#about"
+            class="block text-lg font-medium text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 py-2 px-4 rounded-lg hover:bg-[var(--primary)]/5"
+          >
+            About
+          </a>
         </li>
-        <li class="transform translate-x-8 opacity-0" style="transition-delay: 0.2s">
-          <a href="#projects" class="block text-lg text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300">Projects</a>
+        <li class="reveal-from-bottom stagger-2" style="opacity: 0;">
+          <a
+            href="#projects"
+            class="block text-lg font-medium text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 py-2 px-4 rounded-lg hover:bg-[var(--primary)]/5"
+          >
+            Projects
+          </a>
         </li>
-        <li class="transform translate-x-8 opacity-0" style="transition-delay: 0.3s">
-          <a href="#impact" class="block text-lg text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300">Impact</a>
-        </li>
-        <li class="transform translate-x-8 opacity-0" style="transition-delay: 0.4s">
-          <a href="#contact" class="block text-lg text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300">Contact</a>
+        <li class="reveal-from-bottom stagger-3" style="opacity: 0;">
+          <a
+            href="#contact"
+            class="block text-lg font-medium text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 py-2 px-4 rounded-lg hover:bg-[var(--primary)]/5"
+          >
+            Contact
+          </a>
         </li>
       </ul>
     </nav>
@@ -109,177 +119,79 @@
 </header>
 
 <script>
-  import { gsap } from 'gsap';
+  const header = document.getElementById('main-header');
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
 
-  // Enhanced header animations
-  const header = document.querySelector('header');
-  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const commandTrigger = document.getElementById('command-trigger');
+  // Enhanced scroll effect with blur
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
 
-  // Header scroll behavior with advanced animation
-  let lastScrollY = 0;
-  let ticking = false;
-
-  function updateHeaderOnScroll() {
-    const scrollY = window.scrollY;
-
-    if (scrollY > 100) {
-      gsap.to(header, {
-        backdropFilter: 'blur(20px)',
-        background: 'rgba(11, 19, 43, 0.9)',
-        borderBottomColor: 'rgba(0, 168, 232, 0.3)',
-        duration: 0.3
-      });
+    if (currentScroll > 50) {
+      header!.style.backdropFilter = 'blur(20px) saturate(180%)';
+      header!.style.background = 'rgba(255, 255, 255, 0.85)';
+      header!.style.borderBottom = '1px solid rgba(30, 58, 95, 0.1)';
+      header!.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.06)';
     } else {
-      gsap.to(header, {
-        backdropFilter: 'blur(12px)',
-        background: 'rgba(11, 19, 43, 0.8)',
-        borderBottomColor: 'rgba(28, 28, 28, 0.3)',
-        duration: 0.3
-      });
+      header!.style.backdropFilter = 'blur(0px)';
+      header!.style.background = 'transparent';
+      header!.style.borderBottom = 'none';
+      header!.style.boxShadow = 'none';
     }
 
-    if (scrollY > lastScrollY && scrollY > 200) {
-      // Hide header when scrolling down
-      gsap.to(header, {
-        y: -100,
-        duration: 0.3,
-        ease: "power2.out"
-      });
+    // Hide header on scroll down, show on scroll up
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      header!.style.transform = 'translateY(-100%)';
     } else {
-      // Show header when scrolling up
-      gsap.to(header, {
-        y: 0,
-        duration: 0.3,
-        ease: "power2.out"
-      });
+      header!.style.transform = 'translateY(0)';
     }
 
-    lastScrollY = scrollY;
-    ticking = false;
-  }
+    lastScroll = currentScroll;
+  }, { passive: true });
 
-  function requestScrollUpdate() {
-    if (!ticking) {
-      requestAnimationFrame(updateHeaderOnScroll);
-      ticking = true;
-    }
-  }
+  // Mobile menu toggle with animations
+  toggle?.addEventListener('click', () => {
+    const isHidden = menu?.classList.contains('hidden');
 
-  window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+    if (isHidden) {
+      menu?.classList.remove('hidden');
+      // Animate menu items in
+      setTimeout(() => {
+        menu?.querySelectorAll('li').forEach((li) => {
+          li.classList.add('reveal-from-bottom');
+          li.style.opacity = '1';
+        });
+      }, 10);
 
-  // Enhanced mobile menu toggle
-  let isMenuOpen = false;
-
-  function toggleMobileMenu() {
-    isMenuOpen = !isMenuOpen;
-
-    if (isMenuOpen) {
-      // Open menu animation
-      gsap.set(mobileMenu, { pointerEvents: 'auto' });
-      gsap.to(mobileMenu, {
-        y: 0,
-        opacity: 1,
-        duration: 0.5,
-        ease: "power3.out"
-      });
-
-      gsap.to(mobileMenu.querySelectorAll('li'), {
-        x: 0,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "back.out(1.7)",
-        delay: 0.2
-      });
-
-      // Animate hamburger to X
-      gsap.to('.line-1', { rotation: 45, y: 6, duration: 0.3 });
-      gsap.to('.line-2', { opacity: 0, duration: 0.2 });
-      gsap.to('.line-3', { rotation: -45, y: -6, duration: 0.3 });
-
+      // Animate icon to X
+      menuIcon!.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>';
     } else {
-      // Close menu animation
-      gsap.to(mobileMenu, {
-        y: -20,
-        opacity: 0,
-        duration: 0.3,
-        ease: "power2.in",
-        onComplete: () => {
-          gsap.set(mobileMenu, { pointerEvents: 'none' });
-        }
+      menu?.querySelectorAll('li').forEach((li) => {
+        li.style.opacity = '0';
       });
 
-      gsap.to(mobileMenu.querySelectorAll('li'), {
-        x: 32,
-        opacity: 0,
-        duration: 0.3,
-        stagger: 0.05
-      });
+      setTimeout(() => {
+        menu?.classList.add('hidden');
+      }, 300);
 
-      // Animate X back to hamburger
-      gsap.to('.line-1', { rotation: 0, y: 0, duration: 0.3 });
-      gsap.to('.line-2', { opacity: 1, duration: 0.3, delay: 0.1 });
-      gsap.to('.line-3', { rotation: 0, y: 0, duration: 0.3 });
-    }
-  }
-
-  mobileMenuToggle?.addEventListener('click', toggleMobileMenu);
-
-  // Command palette trigger with enhanced feedback
-  function triggerCommandPalette() {
-    gsap.fromTo(commandTrigger,
-      { scale: 1 },
-      {
-        scale: 1.05,
-        duration: 0.1,
-        yoyo: true,
-        repeat: 1,
-        ease: "power2.inOut"
-      }
-    );
-
-    // Add visual feedback
-    gsap.fromTo(commandTrigger,
-      { boxShadow: '0 0 0 rgba(0, 168, 232, 0)' },
-      {
-        boxShadow: '0 0 20px rgba(0, 168, 232, 0.4)',
-        duration: 0.3,
-        yoyo: true,
-        repeat: 1
-      }
-    );
-  }
-
-  commandTrigger?.addEventListener('click', triggerCommandPalette);
-
-  // Keyboard shortcut for command palette
-  document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-      e.preventDefault();
-      triggerCommandPalette();
+      // Animate icon back to hamburger
+      menuIcon!.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>';
     }
   });
 
-  // Enhanced hover effects for navigation items
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      gsap.to(link, {
-        scale: 1.05,
-        color: 'var(--primary)',
-        duration: 0.2,
-        ease: "power2.out"
+  // Close mobile menu when clicking a link
+  menu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.querySelectorAll('li').forEach((li) => {
+        li.style.opacity = '0';
       });
-    });
 
-    link.addEventListener('mouseleave', () => {
-      gsap.to(link, {
-        scale: 1,
-        color: 'var(--muted)',
-        duration: 0.3,
-        ease: "power2.out"
-      });
+      setTimeout(() => {
+        menu.classList.add('hidden');
+        menuIcon!.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>';
+      }, 300);
     });
   });
 </script>

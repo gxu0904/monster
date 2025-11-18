@@ -1,58 +1,61 @@
 ---
-// ImpactRipples section placeholder
+// Animated Impact section
 ---
 
-<section id="impact" class="py-24 relative" data-animate>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-4xl md:text-6xl font-display font-bold text-center mb-16" data-text-reveal>
+<section id="impact" class="py-32 relative overflow-hidden">
+  <!-- Animated background -->
+  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-[var(--primary)]/5 to-transparent" data-parallax data-speed="0.15"></div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <h2 class="text-4xl md:text-5xl font-display font-bold mb-8" data-animate data-text-reveal>
       Impact
     </h2>
-    <div class="text-center">
-      <p class="text-xl text-[var(--muted)] max-w-3xl mx-auto" data-animate>
-        Creating ripple effects that extend beyond code, contributing to research, education, and social good.
-      </p>
+    <p class="text-lg text-[var(--muted)] leading-relaxed mb-12" data-animate>
+      Creating ripple effects that extend beyond code, contributing to research, education, and social good.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div
+        class="group p-8 rounded-xl border border-[var(--graphite)]/30 hover:border-[var(--primary)]/50 bg-gradient-to-br from-[var(--bg)] to-[var(--graphite)]/5 relative overflow-hidden"
+        data-scale
+        data-hover-lift
+        data-tilt
+        style="transition-delay: 0s; will-change: transform;"
+      >
+        <div class="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10">
+          <div class="text-4xl font-display font-bold text-[var(--primary)] mb-2 group-hover:scale-110 transition-transform duration-300">10K+</div>
+          <div class="text-sm text-[var(--muted)] group-hover:text-[var(--fg)] transition-colors duration-300">Users Reached</div>
+        </div>
+      </div>
+
+      <div
+        class="group p-8 rounded-xl border border-[var(--graphite)]/30 hover:border-[var(--primary)]/50 bg-gradient-to-br from-[var(--bg)] to-[var(--graphite)]/5 relative overflow-hidden"
+        data-scale
+        data-hover-lift
+        data-tilt
+        style="transition-delay: 0.1s; will-change: transform;"
+      >
+        <div class="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10">
+          <div class="text-4xl font-display font-bold text-[var(--primary)] mb-2 group-hover:scale-110 transition-transform duration-300">7+</div>
+          <div class="text-sm text-[var(--muted)] group-hover:text-[var(--fg)] transition-colors duration-300">Projects Deployed</div>
+        </div>
+      </div>
+
+      <div
+        class="group p-8 rounded-xl border border-[var(--graphite)]/30 hover:border-[var(--primary)]/50 bg-gradient-to-br from-[var(--bg)] to-[var(--graphite)]/5 relative overflow-hidden"
+        data-scale
+        data-hover-lift
+        data-tilt
+        style="transition-delay: 0.2s; will-change: transform;"
+      >
+        <div class="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10">
+          <div class="text-4xl font-display font-bold text-[var(--primary)] mb-2 group-hover:scale-110 transition-transform duration-300">3</div>
+          <div class="text-sm text-[var(--muted)] group-hover:text-[var(--fg)] transition-colors duration-300">Awards Won</div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <!-- Ripple animation background -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div id="ripples-container" class="w-full h-full"></div>
-  </div>
 </section>
-
-<script>
-  import { gsap } from 'gsap';
-
-  // Create animated ripples
-  function createRipple() {
-    const container = document.getElementById('ripples-container');
-    const ripple = document.createElement('div');
-    ripple.className = 'absolute border border-[var(--primary)]/20 rounded-full';
-
-    const size = Math.random() * 200 + 50;
-    const x = Math.random() * window.innerWidth;
-    const y = Math.random() * window.innerHeight;
-
-    gsap.set(ripple, {
-      width: 0,
-      height: 0,
-      x: x,
-      y: y,
-      opacity: 0.5
-    });
-
-    container.appendChild(ripple);
-
-    gsap.to(ripple, {
-      width: size,
-      height: size,
-      opacity: 0,
-      duration: 3,
-      ease: "power2.out",
-      onComplete: () => ripple.remove()
-    });
-  }
-
-  // Create ripples periodically
-  setInterval(createRipple, 2000);
-</script>

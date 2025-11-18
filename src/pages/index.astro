@@ -18,23 +18,3 @@ import Footer from '../components/Footer.astro';
   <ContactSignal />
   <Footer />
 </Layout>
-
-<script>
-  import { gsap } from 'gsap';
-
-  // Page-specific entrance animations
-  gsap.timeline({ delay: 0.5 })
-    .from("header", {
-      y: -100,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out"
-    })
-    .from("main > *", {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out"
-    }, "-=0.5");
-</script>

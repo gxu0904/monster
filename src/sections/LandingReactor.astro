@@ -1,5 +1,5 @@
 ---
-// Animation-heavy Landing section with interactive elements
+// Animation-heavy Landing section
 ---
 
 <section
@@ -12,13 +12,13 @@
   <!-- Interactive particle system -->
   <div class="absolute inset-0 pointer-events-auto" id="interactive-particles" data-particles data-particle-count="60" data-particle-color="rgba(30, 58, 95, 0.3)"></div>
 
-  <!-- Animated background grid with parallax -->
+  <!-- Animated background grid -->
   <div class="absolute inset-0 opacity-10 pointer-events-none" data-parallax data-speed="0.3">
     <div class="grid-pattern w-full h-full"></div>
   </div>
 
-  <!-- Large floating gradient orbs -->
-  <div class="absolute top-10 left-10 w-96 h-96 rounded-full bg-gradient-to-br from-[var(--primary)]/15 to-transparent blur-3xl float pointer-events-none" data-parallax data-speed="0.2" style="animation-delay: 0s;"></div>
+  <!-- Floating gradient orbs -->
+  <div class="absolute top-10 left-10 w-96 h-96 rounded-full bg-gradient-to-br from-[var(--primary)]/15 to-transparent blur-3xl float pointer-events-none" data-parallax data-speed="0.2"></div>
   <div class="absolute bottom-10 right-10 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[var(--accent)]/12 to-transparent blur-3xl float pointer-events-none" data-parallax data-speed="0.35" style="animation-delay: 1.5s;"></div>
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-gradient-to-br from-[var(--primary)]/8 to-transparent blur-3xl rotate-slow pointer-events-none"></div>
 
@@ -27,61 +27,54 @@
     <div class="cursor-dot"></div>
   </div>
 
-  <!-- Main content with heavy animations -->
+  <!-- Main content -->
   <div class="relative z-10 text-center max-w-5xl mx-auto px-4 perspective-1000 pointer-events-none">
-    <!-- Animated title with spectacular effects -->
-    <h1 class="mb-8" data-animate>
-      <!-- Name on one row -->
-      <div class="relative inline-block w-full">
-        <div class="flex items-center justify-center gap-6 md:gap-10 lg:gap-16 flex-wrap">
-          <!-- First name with individual letter animations -->
-          <div class="relative inline-block">
+    <!-- Animated title -->
+    <h1 class="mb-8 md:mb-12" data-animate>
+      <div class="relative inline-block w-full overflow-visible">
+        <div class="flex items-center justify-center gap-3 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-16 whitespace-nowrap">
+          <!-- First name -->
+          <div class="relative inline-block name-container">
             <span
               id="first-name"
-              class="font-display text-7xl md:text-9xl lg:text-[10rem] xl:text-[14rem] font-bold text-[var(--fg)] leading-none animated-name"
+              class="font-display text-[14vw] sm:text-[13vw] md:text-[12vw] lg:text-[11vw] xl:text-[10vw] font-bold text-[var(--fg)] leading-none tracking-tight uppercase"
               style="transform-origin: center; will-change: transform, opacity; opacity: 0;"
             >
               Grace
             </span>
-            <!-- Particle container for first name -->
-            <div id="first-name-particles" class="absolute inset-0 pointer-events-none"></div>
           </div>
 
-          <!-- Last name with animated gradient -->
-          <div class="relative inline-block">
+          <!-- Last name with gradient -->
+          <div class="relative inline-block name-container">
             <span
               id="last-name"
-              class="font-display text-7xl md:text-9xl lg:text-[10rem] xl:text-[14rem] font-bold leading-none animated-name"
+              class="font-display text-[14vw] sm:text-[13vw] md:text-[12vw] lg:text-[11vw] xl:text-[10vw] font-bold leading-none tracking-tight uppercase"
               style="transform-origin: center; will-change: transform, opacity; opacity: 0;"
             >
               Xu
             </span>
-            <!-- Particle container for last name -->
-            <div id="last-name-particles" class="absolute inset-0 pointer-events-none"></div>
-
-            <!-- Animated gradient overlay -->
-            <div class="absolute inset-0 bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--primary)] bg-[length:200%_100%] animate-gradient-flow opacity-80 bg-clip-text text-transparent mix-blend-multiply pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--primary)] bg-[length:200%_100%] animate-gradient-flow opacity-70 bg-clip-text text-transparent mix-blend-multiply pointer-events-none"></div>
           </div>
         </div>
       </div>
     </h1>
 
-    <!-- Animated subtitle with character reveal -->
+    <!-- Animated subtitle -->
     <div class="mb-16" data-animate style="animation-delay: 0.4s;">
       <p class="text-2xl md:text-3xl lg:text-4xl text-[var(--muted)] font-light" data-char-reveal style="will-change: transform, opacity;">
         Engineer. Researcher. Builder.
       </p>
     </div>
 
-    <!-- Magnetic CTA buttons with enhanced effects -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pointer-events-auto" data-animate style="animation-delay: 0.6s;">
+    <!-- CTA buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-32 pointer-events-auto" data-animate style="animation-delay: 0.6s;">
       <a
         href="#projects"
         class="group relative px-10 py-4 bg-[var(--primary)] text-[var(--bg)] font-semibold rounded-xl overflow-hidden hover-scale pulse-glow interactive-button"
         data-magnetic
         data-magnetic-strength="0.5"
         data-hover-lift
-        style="will-change: transform; transform-style: preserve-3d;"
+        style="will-change: transform;"
       >
         <span class="relative z-10 flex items-center gap-2">
           View Work
@@ -113,8 +106,8 @@
       </a>
     </div>
 
-    <!-- Animated scroll indicator with pulse -->
-    <div class="absolute bottom-16 left-1/2 -translate-x-1/2 pointer-events-auto" data-animate style="animation-delay: 0.8s;">
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-auto" data-animate style="animation-delay: 0.8s;">
       <a
         href="#about"
         class="flex flex-col items-center gap-3 text-[var(--muted)] hover:text-[var(--primary)] transition-all duration-300 group"
@@ -143,36 +136,27 @@
   }
 
   @keyframes gridMove {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 60px 60px;
-    }
-  }
-
-  /* Spectacular name animations */
-  .animated-name {
-    position: relative;
-    cursor: pointer;
-    pointer-events: auto;
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
   }
 
   /* Flowing gradient animation */
   @keyframes gradient-flow {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 
   .animate-gradient-flow {
     animation: gradient-flow 4s ease infinite;
   }
 
-  /* Individual letter wrapper */
+  /* Name container */
+  .name-container {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  /* Letter styling */
   .letter {
     display: inline-block;
     position: relative;
@@ -181,18 +165,14 @@
     pointer-events: auto;
   }
 
-  /* Letter hover effects - each gets unique animation */
-  .letter:hover {
-    animation: letterBounce 0.6s ease !important;
-  }
-
-  .letter:nth-child(1):hover { animation: letterRotate 0.6s ease !important; }
-  .letter:nth-child(2):hover { animation: letterScale 0.6s ease !important; }
-  .letter:nth-child(3):hover { animation: letterFlip 0.6s ease !important; }
-  .letter:nth-child(4):hover { animation: letterWobble 0.6s ease !important; }
-  .letter:nth-child(5):hover { animation: letterElastic 0.6s ease !important; }
-  .letter:nth-child(6):hover { animation: letterBounce 0.6s ease !important; }
-  .letter:nth-child(7):hover { animation: letterRotate 0.6s ease !important; }
+  /* Letter hover effects */
+  .letter:nth-child(1):hover { animation: letterRotate 0.6s ease; }
+  .letter:nth-child(2):hover { animation: letterScale 0.6s ease; }
+  .letter:nth-child(3):hover { animation: letterFlip 0.6s ease; }
+  .letter:nth-child(4):hover { animation: letterWobble 0.6s ease; }
+  .letter:nth-child(5):hover { animation: letterElastic 0.6s ease; }
+  .letter:nth-child(6):hover { animation: letterBounce 0.6s ease; }
+  .letter:nth-child(7):hover { animation: letterRotate 0.6s ease; }
 
   @keyframes letterBounce {
     0%, 100% { transform: translateY(0) scale(1); }
@@ -232,46 +212,9 @@
     75% { transform: scale(1.2, 0.9); }
   }
 
-  /* Glitch effect */
-  .letter.glitch {
-    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-
-  @keyframes glitch {
-    0%, 100% {
-      transform: translate(0);
-      opacity: 1;
-    }
-    20% {
-      transform: translate(-3px, 3px);
-      opacity: 0.8;
-    }
-    40% {
-      transform: translate(3px, -3px);
-      opacity: 0.8;
-    }
-    60% {
-      transform: translate(-2px, -2px);
-      opacity: 0.9;
-    }
-    80% {
-      transform: translate(2px, 2px);
-      opacity: 0.8;
-    }
-  }
-
-  /* Rainbow effect on hover */
+  /* Rainbow effect on click */
   .letter.rainbow {
-    background: linear-gradient(
-      45deg,
-      #ff0000,
-      #ff7f00,
-      #ffff00,
-      #00ff00,
-      #0000ff,
-      #4b0082,
-      #9400d3
-    );
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
     background-size: 300% 300%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -291,18 +234,7 @@
             drop-shadow(0 0 30px rgba(30, 58, 95, 0.1));
   }
 
-  /* Particle effects */
-  .name-particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--primary);
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0;
-  }
-
-  /* Enhanced button hover effects */
+  /* Button effects */
   .interactive-button {
     position: relative;
     overflow: hidden;
@@ -326,7 +258,7 @@
     height: 300px;
   }
 
-  /* Enhanced focus states for better UX */
+  /* Focus states */
   a:focus-visible, button:focus-visible {
     outline: 2px solid var(--primary);
     outline-offset: 4px;
@@ -357,14 +289,14 @@
     });
   });
 
-  // Spectacular name letter effects
+  // Name animation
   function initNameEffects() {
     const firstName = document.getElementById('first-name');
     const lastName = document.getElementById('last-name');
 
     if (!firstName || !lastName) return;
 
-    // Immediate fade in with GSAP
+    // Fade in names
     gsap.to([firstName, lastName], {
       opacity: 1,
       duration: 0.8,
@@ -372,20 +304,18 @@
       stagger: 0.2
     });
 
-    // Split names into individual letters immediately after fade
+    // Split into interactive letters
     setTimeout(() => {
-      // Split names into individual letters
       function splitIntoLetters(element) {
         const text = element.textContent;
         element.innerHTML = '';
 
-        text.split('').forEach((char, index) => {
+        text.split('').forEach((char) => {
           const span = document.createElement('span');
           span.textContent = char;
           span.className = 'letter';
           span.style.display = 'inline-block';
           span.style.transformOrigin = 'center';
-          span.style.willChange = 'transform';
           element.appendChild(span);
         });
 
@@ -395,129 +325,35 @@
       const firstNameLetters = splitIntoLetters(firstName);
       const lastNameLetters = splitIntoLetters(lastName);
 
-      // Add individual letter interactions
-      function setupLetterInteractions(letters, particleContainer) {
-        letters.forEach((letter, index) => {
-          // Hover glow effect
+      // Setup letter interactions
+      function setupLetterInteractions(letters) {
+        letters.forEach((letter) => {
+          letter.style.pointerEvents = 'auto';
+          letter.style.cursor = 'pointer';
+
+          // Glow on hover
           letter.addEventListener('mouseenter', () => {
             letter.classList.add('letter-glow');
-
-            // Emit particles
-            emitParticles(letter, particleContainer);
-
-            // Random chance for glitch effect
-            if (Math.random() > 0.7) {
-              letter.classList.add('glitch');
-              setTimeout(() => letter.classList.remove('glitch'), 300);
-            }
           });
 
           letter.addEventListener('mouseleave', () => {
             letter.classList.remove('letter-glow');
           });
 
-          // Click for rainbow effect
+          // Rainbow effect on click
           letter.addEventListener('click', (e) => {
             e.stopPropagation();
+            e.preventDefault();
             letter.classList.add('rainbow');
-
-            // Create burst effect
-            createLetterBurst(letter, particleContainer);
-
             setTimeout(() => letter.classList.remove('rainbow'), 2000);
           });
         });
       }
 
-      // Particle emission from letters
-      function emitParticles(letter, container) {
-        const rect = letter.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        const particleCount = 8;
+      setupLetterInteractions(firstNameLetters);
+      setupLetterInteractions(lastNameLetters);
 
-        for (let i = 0; i < particleCount; i++) {
-          const particle = document.createElement('div');
-          particle.className = 'name-particle';
-
-          const x = rect.left - containerRect.left + rect.width / 2;
-          const y = rect.top - containerRect.top + rect.height / 2;
-
-          particle.style.left = `${x}px`;
-          particle.style.top = `${y}px`;
-
-          container.appendChild(particle);
-
-          const angle = (Math.PI * 2 * i) / particleCount;
-          const velocity = 30 + Math.random() * 20;
-          const tx = Math.cos(angle) * velocity;
-          const ty = Math.sin(angle) * velocity;
-
-          gsap.fromTo(particle,
-            { opacity: 1, scale: 1 },
-            {
-              x: tx,
-              y: ty,
-              opacity: 0,
-              scale: 0,
-              duration: 0.8 + Math.random() * 0.4,
-              ease: "power2.out",
-              onComplete: () => particle.remove()
-            }
-          );
-        }
-      }
-
-      // Letter burst effect on click
-      function createLetterBurst(letter, container) {
-        const rect = letter.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        const particleCount = 20;
-
-        for (let i = 0; i < particleCount; i++) {
-          const particle = document.createElement('div');
-          particle.className = 'name-particle';
-
-          const x = rect.left - containerRect.left + rect.width / 2;
-          const y = rect.top - containerRect.top + rect.height / 2;
-
-          particle.style.left = `${x}px`;
-          particle.style.top = `${y}px`;
-
-          // Random colors for rainbow effect
-          const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
-          particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-
-          container.appendChild(particle);
-
-          const angle = Math.random() * Math.PI * 2;
-          const velocity = 50 + Math.random() * 50;
-          const tx = Math.cos(angle) * velocity;
-          const ty = Math.sin(angle) * velocity;
-
-          gsap.fromTo(particle,
-            { opacity: 1, scale: 1.5 },
-            {
-              x: tx,
-              y: ty,
-              opacity: 0,
-              scale: 0,
-              rotation: Math.random() * 360,
-              duration: 1 + Math.random() * 0.5,
-              ease: "power2.out",
-              onComplete: () => particle.remove()
-            }
-          );
-        }
-      }
-
-      // Setup interactions
-      const firstNameParticles = document.getElementById('first-name-particles');
-      const lastNameParticles = document.getElementById('last-name-particles');
-
-      setupLetterInteractions(firstNameLetters, firstNameParticles);
-      setupLetterInteractions(lastNameLetters, lastNameParticles);
-
-      // Continuous ambient animation - faster wave effect
+      // Subtle wave animation
       function waveAnimation(letters, delay = 0) {
         letters.forEach((letter, index) => {
           gsap.to(letter, {
@@ -532,30 +368,14 @@
         });
       }
 
-      // Start ambient wave animation
       setTimeout(() => {
         waveAnimation(firstNameLetters, 0);
         waveAnimation(lastNameLetters, 0.3);
       }, 800);
-
-      // More frequent random glitch effect
-      setInterval(() => {
-        const allLetters = [...firstNameLetters, ...lastNameLetters];
-        const randomLetter = allLetters[Math.floor(Math.random() * allLetters.length)];
-
-        // Force glitch class and ensure it's visible
-        randomLetter.classList.add('glitch');
-        randomLetter.style.animation = 'glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both';
-
-        setTimeout(() => {
-          randomLetter.classList.remove('glitch');
-          randomLetter.style.animation = '';
-        }, 300);
-      }, 2000); // Every 2 seconds instead of 4
-    }, 500); // Split letters after initial fade
+    }, 500);
   }
 
-  // Initialize when DOM is ready
+  // Initialize
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initNameEffects);
   } else {

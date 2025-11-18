@@ -26,8 +26,6 @@ class AnimationMaster {
   }
 
   setup() {
-    console.log('🎬 Initializing enhanced animation systems...');
-
     // Initialize smooth scrolling
     this.initSmoothScroll();
 
@@ -44,7 +42,6 @@ class AnimationMaster {
     this.setupPerformanceOptimizations();
 
     this.isInitialized = true;
-    console.log('✨ Animation systems initialized successfully!');
   }
 
   initSmoothScroll() {
@@ -60,6 +57,7 @@ class AnimationMaster {
       infinite: false,
     });
 
+    // Use requestAnimationFrame for smooth updates
     const raf = (time) => {
       this.lenis.raf(time);
       requestAnimationFrame(raf);
@@ -69,10 +67,6 @@ class AnimationMaster {
 
     // Integrate Lenis with GSAP ScrollTrigger
     this.lenis.on('scroll', ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      this.lenis.raf(time * 1000);
-    });
 
     gsap.ticker.lagSmoothing(0);
   }
@@ -197,7 +191,7 @@ class AnimationMaster {
     // Clean up completed animations
     gsap.registerEffect({
       name: "autoCleanup",
-      effect: (targets, config) => {
+      effect: (_targets, _config) => {
         const tl = gsap.timeline({
           onComplete: () => {
             // Clean up references
@@ -217,7 +211,7 @@ class AnimationMaster {
 
       // Auto-cleanup after a certain threshold
       if (scrollTriggerCount > 100) {
-        console.warn('High ScrollTrigger count detected, consider cleanup');
+        // High ScrollTrigger count detected, consider cleanup
       }
 
       return instance;

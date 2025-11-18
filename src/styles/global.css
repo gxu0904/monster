@@ -70,25 +70,25 @@
     font-family: 'IBM Plex Mono', var(--font-mono, monospace);
   }
   
-  /* Glass panels - Browser Company inspired */
+  /* Glass panels - White theme adapted */
   .glass {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(30, 58, 95, 0.1);
     box-shadow: 
-      0 8px 32px 0 rgba(0, 0, 0, 0.37),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+      0 8px 32px 0 rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
   }
   
   .glass-strong {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(24px) saturate(180%);
     -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(30, 58, 95, 0.15);
     box-shadow: 
-      0 8px 32px 0 rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+      0 8px 32px 0 rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
   }
   
   /* Glow effects */
@@ -115,6 +115,14 @@
     @apply outline outline-2 outline-offset-2 outline-[var(--primary)];
     outline-style: solid;
     border-radius: 4px;
+  }
+  
+  /* Better focus for interactive elements */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+    border-radius: 6px;
   }
   
   /* Smooth transitions for interactive elements */
@@ -236,9 +244,9 @@
   .shimmer {
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.1) 50%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(30, 58, 95, 0) 0%,
+      rgba(30, 58, 95, 0.1) 50%,
+      rgba(30, 58, 95, 0) 100%
     );
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
@@ -319,14 +327,14 @@
 
   /* Smooth reveal from bottom */
   .reveal-from-bottom {
-    animation: revealBottom 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: revealBottom 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   @keyframes revealBottom {
     from {
       opacity: 0;
-      transform: translateY(60px) scale(0.95);
-      filter: blur(10px);
+      transform: translateY(30px) scale(0.98);
+      filter: blur(5px);
     }
     to {
       opacity: 1;
@@ -337,13 +345,13 @@
 
   /* Glass morphism with enhanced blur */
   .glass-morphism {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(30px) saturate(180%);
     -webkit-backdrop-filter: blur(30px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(30, 58, 95, 0.1);
     box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
   }
 
   /* Gradient border animation */
